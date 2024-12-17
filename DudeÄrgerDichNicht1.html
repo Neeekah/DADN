@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Dude ärger dich nicht</title>
+</head>
+<body>
+    <img id="Spielbrett" src="MeschaeDude1.jpg">
+    <button id="Soundbutton1" onclick="playSound('Sound1')"></button>
+    <button id="Soundbutton2" onclick="playSound('Sound2')"></button>
+    <audio id="Sound1" src="MLG_Air_Horn_Sound.mp3"></audio>
+    <audio id="Sound2" src="Fail.mp3"></audio>
+    
+      <script>
+        function playSound(audioid) {
+            var audio = document.getElementById(audioid);
+            audio.play();
+        }
+      </script>
+    
+    <button id="Dice" onclick="generateRandomNumber()">Start!</button>
+    
+      <script>
+        function generateRandomNumber() {
+          var randomNumber = Math.floor(Math.random()*6)+1;
+          document.getElementById("Dice").innerText = randomNumber;
+        }
+      </script>
+ 
+
+</body>
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+  }
+  #Spielbrett {
+    height: 100vh;
+    width: auto;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #Soundbutton1 {
+    background-color: blue;
+    height: 10vh;
+    width: 10vh;
+    border-radius: 50%;
+    position: absolute;
+    top: 90vh;
+    left: 65vw;
+  }
+  #Soundbutton2 {
+    background-color: red;
+    height: 10vh;
+    width: 10vh;
+    border-radius: 50%;
+     position: absolute;
+    top: 85vh;
+    left: 80vw;
+  }
+    
+  #Dice {
+    background-color: #eceedd;
+    height: 10vh;
+    width: 10vh;
+    border-radius: 5%;
+    position: absolute;
+    top: 85vh;
+    left: 20vw;
+    font-size: 3.2vh;
+  }
+</style>
+</html>
