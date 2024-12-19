@@ -4,13 +4,38 @@
     <title>Dude ärger dich nicht</title>
 </head>
 <body>
-    <img id="Spielbrett" src="MeschaeDude1.jpg">
+    <img id="Board" src="">
     <button id="Soundbutton1" onclick="playSound('Sound1')"></button>
     <button id="Soundbutton2" onclick="playSound('Sound2')"></button>
-    <audio id="Sound1" src="MLG_Air_Horn_Sound.mp3"></audio>
-    <audio id="Sound2" src="Fail.mp3"></audio>
+    <audio id="Sound1" src=""></audio>
+    <audio id="Sound2" src=""></audio>
     
       <script>
+        function setDynamicContent() {
+          var id = getUrlParameter('id');
+          
+          if (id === '1') {
+          Board.src = 'Boards\DADNbl.png'
+          Sound1.src = 'Audios\DrumRoll.mp3'
+          Sound2.src = 'Audios\WompWomp.mp3'
+        } else if (id === '2') {
+          Board.src = 'Boards\DADNgr.png'
+          Sound1.src = 'Audios\CrowdWoo.mp3'
+          Sound2.src = 'Audios\CrowdBoo.mp3'
+        } else if (id === '3') {
+          Board.src = 'Boards\DADNrd.png'
+          Sound1.src = 'Audios\CrowGasp.mp3'
+          Sound2.src = 'Audios\Bonk.mp3'
+        } else if (id === '4') {
+          Board.src = 'Boards\DADNyl.png'
+          Sound1.src = 'Audios\GoofyAhh.mp3'
+          Sound2.src = 'Audios\HmWeisNich.mp3'
+        } else if (id === 'elk') {
+          Board.src = 'Boards\DADNgr.png'
+          Sound1.src = 'Audios\Trumpet.mp3'
+          Sound2.src = 'Audios\Womp2.mp3'
+        }
+      }
         function playSound(audioid) {
             var audio = document.getElementById(audioid);
             audio.play();
@@ -33,7 +58,7 @@
     height: 100%;
     margin: 0;
   }
-  #Spielbrett {
+  #Board {
     height: 100vh;
     width: auto;
     margin: 0 auto;
