@@ -4,78 +4,96 @@
     <title>Dude ärger dich nicht</title>
 </head>
 <body>
+  <div class="container">
     <img id="Board" src="">
-    <button id="Soundbutton1" onclick="playSound('Sound1')"></button>
-    <button id="Soundbutton2" onclick="playSound('Sound2')"></button>
-    <audio id="Sound1" src=""></audio>
-    <audio id="Sound2" src=""></audio>
-    
-      <script>
-        function getUrlParameter(id) {
-          var UrlParams = new URLSearchParams(window.location.search);
-          return UrlParams.get(id);
-        }
+    <button class="button" id="Soundbutton1" onclick="playSound('Sound1')"></button>
+    <button class="button" id="Soundbutton2" onclick="playSound('Sound2')"></button>
+  </div>
+  <audio id="Sound1" src=""></audio>
+  <audio id="Sound2" src=""></audio>
+  
+    <script>
+      function getUrlParameter(id) {
+        var UrlParams = new URLSearchParams(window.location.search);
+        return UrlParams.get(id);
+      }
 
-        function setDynamicContent() {
-          var id = getUrlParameter('id');
-          var Board = document.getElementById('Board');
-          var Sound1 = document.getElementById('Sound1');
-          var Sound1 = document.getElementById('Sound1');
-          
-          if (id === '1') {
-            Board.src = 'Boards/DADNbl.png';
-            Sound1.src = 'Audios/DrumRoll.mp3';
-            Sound2.src = 'Audios/WompWomp.mp3';
-          } else if (id === '2') {
-            Board.src = 'Boards/DADNgr.png';
-            Sound1.src = 'Audios/CrowdWoo.mp3';
-            Sound2.src = 'Audios/CrowdBoo.mp3';
-          } else if (id === '3') {
-            Board.src = 'Boards/DADNrd.png';
-            Sound1.src = 'Audios/CrowGasp.mp3';
-            Sound2.src = 'Audios/Bonk.mp3';
-          } else if (id === '4') {
-            Board.src = 'Boards/DADNyl.png';
-            Sound1.src = 'Audios/GoofyAhh.mp3';
-            Sound2.src = 'Audios/HmWeisNich.mp3';
-          } else if (id === 'elk') {
-            Board.src = 'Boards/DADNgr.png';
-            Sound1.src = 'Audios/Trumpet.mp3';
-            Sound2.src = 'Audios/Womp2.mp3';
-          }
-        }
+      function setDynamicContent() {
+        var id = getUrlParameter('id');
+        var Board = document.getElementById('Board');
+        var Sound1 = document.getElementById('Sound1');
+        var Sound1 = document.getElementById('Sound1');
         
-        window.onload = setDynamicContent;
+        if (id === '1') {
+          Board.src = 'Boards/DADNbl.png';
+          Sound1.src = 'Audios/DrumRoll.mp3';
+          Sound2.src = 'Audios/WompWomp.mp3';
+        } else if (id === '2') {
+          Board.src = 'Boards/DADNgr.png';
+          Sound1.src = 'Audios/CrowdWoo.mp3';
+          Sound2.src = 'Audios/CrowdBoo.mp3';
+        } else if (id === '3') {
+          Board.src = 'Boards/DADNrd.png';
+          Sound1.src = 'Audios/CrowdGasp.mp3';
+          Sound2.src = 'Audios/Bonk.mp3';
+        } else if (id === '4') {
+          Board.src = 'Boards/DADNyl.png';
+          Sound1.src = 'Audios/GoofyAhh.mp3';
+          Sound2.src = 'Audios/HmWeisNich.mp3';
+        } else if (id === 'elk') {
+          Board.src = 'Boards/DADNgr.png';
+          Sound1.src = 'Audios/Trumpet.mp3';
+          Sound2.src = 'Audios/Womp2.mp3';
+        } else {
+          Board.src = 'Boards/DADNbl.png';
+          Sound1.src = 'Audios/DrumRoll.mp3';
+          Sound2.src = 'Audios/WompWomp.mp3';
+        }
+      }
+      
+      window.onload = setDynamicContent;
 
-        function playSound(audioid) {
-            var audio = document.getElementById(audioid);
-            audio.play();
-        }
-      </script>
-    
-    <button id="Dice" onclick="generateRandomNumber()">Start!</button>
-    
-      <script>
-        function generateRandomNumber() {
-          var randomNumber = Math.floor(Math.random()*6)+1;
-          document.getElementById("Dice").innerText = randomNumber;
-        }
-      </script>
- 
+      function playSound(audioid) {
+          var audio = document.getElementById(audioid);
+          audio.play();
+      }
+    </script>
+  
+  <button class="button" id="Dice" onclick="generateRandomNumber()">Start!</button>
+  
+    <script>
+      function generateRandomNumber() {
+        var randomNumber = Math.floor(Math.random()*6)+1;
+        document.getElementById("Dice").innerText = randomNumber;
+      }
+    </script>
 
 </body>
 <style>
   body, html {
-    height: 100%;
     margin: 0;
+    padding: 0;
   }
-  #Board {
-    height: 100vh;
-    width: auto;
-    margin: 0 auto;
+  .container {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+  }
+  .container img {
+    width: 100%;
+    height: 100%;
+  }
+  .button {
+    margin: 0;
+    padding: 0;
+    transform: translate(-50%, -50%);
+    border-width: 12px;
+    border-color: black;
   }
   #Soundbutton1 {
     background-color: blue;
@@ -83,27 +101,26 @@
     width: 10vh;
     border-radius: 50%;
     position: absolute;
-    top: 90vh;
-    left: 65vw;
+    top: 92%;
+    left: 72%;
   }
   #Soundbutton2 {
     background-color: red;
     height: 10vh;
     width: 10vh;
     border-radius: 50%;
-     position: absolute;
-    top: 85vh;
-    left: 80vw;
-  }
-    
+    position: fixed;
+    top: 82%;
+    left: 88%;
+  } 
   #Dice {
     background-color: #eceedd;
     height: 10vh;
     width: 10vh;
-    border-radius: 5%;
-    position: absolute;
-    top: 85vh;
-    left: 20vw;
+    border-radius: 20%;
+    position: fixed;
+    top: 90%;
+    left: 20%;
     font-size: 3.2vh;
   }
 </style>
