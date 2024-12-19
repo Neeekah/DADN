@@ -10,6 +10,7 @@
     <img id="Board" src="">
     <button class="button" id="Soundbutton1" onclick="playSound('Sound1')"></button>
     <button class="button" id="Soundbutton2" onclick="playSound('Sound2')"></button>
+    <button class="button" id="Dice" onclick="generateRandomNumber()">Start!</button>
   </div>
 
   <audio id="Sound1" src=""></audio>
@@ -79,14 +80,10 @@
           document.exitFullscreen();
         }
       }
-    </script>
-  
-  <button class="button" id="Dice" onclick="generateRandomNumber()">Start!</button>
-  
-    <script>
+      
       function generateRandomNumber() {
         var button = document.getElementById("Dice");
-        button.style.fontSize = "5vh";
+        button.style.fontSize = "40px";
         button.disabled = true;
         button.innerText = ".";
 
@@ -111,16 +108,24 @@
   body, html {
     margin: 0;
     padding: 0;
-  }
-  .container {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 150%;
+    width: 200%;
     object-fit: contain;
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    position: relative;
+  }
+  .container {
+    margin: 0;
+    padding: 0;
+    height: auto;
+    width: 400px;
+    object-fit: contain;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    background-color: blueviolet;
   }
   .container img {
     max-width: 100%;
@@ -133,34 +138,32 @@
     transform: translate(-50%, -50%);
     border-width: 6px;
     border-color: black;
+    position: absolute;
   }
   #Soundbutton1 {
     background-color: blue;
-    height: 10vh;
-    width: 10vh;
+    height: 80px;
+    width: 80px;
     border-radius: 50%;
-    position: fixed;
     top: 92%;
-    left: 72%;
+    left: 75%;
   }
   #Soundbutton2 {
     background-color: red;
-    height: 10vh;
-    width: 10vh;
+    height: 80px;
+    width: 80px;
     border-radius: 50%;
-    position: fixed;
     top: 82%;
     left: 88%;
   } 
   #Dice {
     background-color: #eceedd;
-    height: 10vh;
-    width: 10vh;
+    height: 80px;
+    width: 80px;
     border-radius: 20%;
-    position: fixed;
-    top: 90%;
-    left: 20%;
-    font-size: 3.2vh;
+    top: 89%;
+    left: 18%;
+    font-size: 25px;
   }
 </style>
 </html>
