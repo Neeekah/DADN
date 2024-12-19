@@ -62,11 +62,16 @@
           audio.play();
       }
 
+      function screenLockColorChange(color) {
+        var originalColor = document.body.style.backgroundColor;
+        document.body.style.backgroundColor = color;
+        }
+
       let lastTap = 0;
       document.body.addEventListener('touchstart', function(event) {
         let currentTime = new Date().getTime();
         let tapLength = currentTime - lastTap;
-        if (tapLength < 500 && tapLength > 0) {
+        if (tapLength < 350 && tapLength > 0) {
           event.preventDefault();
           toggleTouchAction();
         }
@@ -77,8 +82,10 @@
         var container = document.getElementById('container');
         if (container.style.touchAction === 'none') {
           container.style.touchAction = 'auto';
+          screenLockColorChange('#E0E6D9')
         } else {
           container.style.touchAction = 'none';
+          screenLockColorChange('white');
         }
       }
       
@@ -115,6 +122,7 @@
     justify-content: center;
     align-items: flex-start;
     position: relative;
+    background-color: #E0E6D9;
   }
   .container {
     margin: 0;
