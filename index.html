@@ -71,7 +71,7 @@
       document.body.addEventListener('touchstart', function(event) {
         let currentTime = new Date().getTime();
         let tapLength = currentTime - lastTap;
-        if (tapLength < 350 && tapLength > 0) {
+        if (tapLength < 350 && tapLength > 20) {
           event.preventDefault();
           toggleTouchAction();
         }
@@ -123,7 +123,6 @@
     justify-content: center;
     align-items: flex-start;
     position: relative;
-    touch-action: manipulation;
     background-color: #E0E6D9;
   }
   .container {
