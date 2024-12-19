@@ -4,7 +4,7 @@
     <title>Dude ärger dich nicht</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body style="touch-action: manipulation;">
 
   <div id= "container" class="container">
     <img id="Board" src="">
@@ -82,10 +82,12 @@
         var container = document.getElementById('container');
         if (container.style.touchAction === 'none') {
           container.style.touchAction = 'auto';
-          screenLockColorChange('#E0E6D9')
+          screenLockColorChange('#E0E6D9');
+          document.body.style.touchAction = 'manipulation';
         } else {
           container.style.touchAction = 'none';
           screenLockColorChange('white');
+          document.body.style.touchAction = 'none';
         }
       }
       
@@ -105,9 +107,9 @@
               var randomNumber = Math.floor(Math.random() * 6) + 1;
               button.innerText = randomNumber;
               button.disabled = false;
-            }, 1000);
-          }, 1000);
-        },1000);
+            }, 700);
+          }, 700);
+        }, 700);
       }
     </script>
 
