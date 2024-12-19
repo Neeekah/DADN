@@ -4,7 +4,7 @@
     <title>Dude ärger dich nicht</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body style="touch-action: manipulation;">
 
   <div id= "container" class="container">
     <img id="Board" src="">
@@ -117,11 +117,13 @@
     margin: 0;
     padding: 0;
     width: 150%;
+    height: 150%;
     object-fit: contain;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     position: relative;
+    touch-action: manipulation;
     background-color: #E0E6D9;
   }
   .container {
