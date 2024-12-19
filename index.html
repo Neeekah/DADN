@@ -75,7 +75,7 @@
       document.body.addEventListener('touchstart', function(event) {
         let currentTime = new Date().getTime();
         let tapLength = currentTime - lastTap;
-        if (tapLength < 350 && tapLength > 20) {
+        if (tapLength < 350 && tapLength > 30) {
           event.preventDefault();
           toggleTouchAction();
         }
