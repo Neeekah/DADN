@@ -3,12 +3,14 @@
 <head>
     <title>Dude ärger dich nicht</title>
 </head>
-<body>
+<body ondblclick="toggleFullscreen()">
+
   <div class="container">
     <img id="Board" src="">
     <button class="button" id="Soundbutton1" onclick="playSound('Sound1')"></button>
     <button class="button" id="Soundbutton2" onclick="playSound('Sound2')"></button>
   </div>
+
   <audio id="Sound1" src=""></audio>
   <audio id="Sound2" src=""></audio>
   
@@ -56,6 +58,14 @@
       function playSound(audioid) {
           var audio = document.getElementById(audioid);
           audio.play();
+      }
+
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen();
+        } else if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
       }
     </script>
   
