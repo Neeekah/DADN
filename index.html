@@ -6,11 +6,11 @@
 </head>
 <body>
 
-  <div class="container">
+  <div id= "container" class="container">
     <img id="Board" src="">
-    <button class="button" id="Soundbutton1" onclick="playSound('Sound1')"></button>
-    <button class="button" id="Soundbutton2" onclick="playSound('Sound2')"></button>
-    <button class="button" id="Dice" onclick="generateRandomNumber()">Start!</button>
+    <button id="Soundbutton1" class="button" onclick="playSound('Sound1')"></button>
+    <button id="Soundbutton2" class="button" onclick="playSound('Sound2')"></button>
+    <button id="Dice" class="button" onclick="generateRandomNumber()">Start!</button>
   </div>
 
   <audio id="Sound1" src=""></audio>
@@ -63,7 +63,7 @@
       }
 
       let lastTap = 0;
-      document.body.addEventListener('touchend', function(event) {
+      document.body.addEventListener('touchstart', function(event) {
         let currentTime = new Date().getTime();
         let tapLength = currentTime - lastTap;
         if (tapLength < 500 && tapLength > 0) {
@@ -109,7 +109,7 @@
   body, html {
     margin: 0;
     padding: 0;
-    width: 200%;
+    width: 150%;
     object-fit: contain;
     display: flex;
     justify-content: center;
@@ -126,7 +126,7 @@
     justify-content: center;
     align-items: flex-start;
     position: relative;
-    background-color: blueviolet;
+    touch-action: auto;
   }
   .container img {
     max-width: 100%;
