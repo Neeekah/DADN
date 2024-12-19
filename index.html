@@ -62,6 +62,10 @@
           audio.play();
       }
 
+      document.addEventListener('gesturestart', function (e) {
+        e.preventDefault();
+      });
+
       function screenLockColorChange(color) {
         var originalColor = document.body.style.backgroundColor;
         document.body.style.backgroundColor = color;
