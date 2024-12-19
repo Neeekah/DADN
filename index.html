@@ -41,7 +41,7 @@
           Sound1.src = 'Audios/GoofyAhh.mp3';
           Sound2.src = 'Audios/HmWeisNich.mp3';
         } else if (id === 'elk') {
-          Board.src = 'Boards/DADNgr.png';
+          Board.src = 'Boards/DADNelk.png';
           Sound1.src = 'Audios/Trumpet.mp3';
           Sound2.src = 'Audios/Womp2.mp3';
         } else {
@@ -63,8 +63,22 @@
   
     <script>
       function generateRandomNumber() {
-        var randomNumber = Math.floor(Math.random()*6)+1;
-        document.getElementById("Dice").innerText = randomNumber;
+        var button = document.getElementById("Dice");
+        button.style.fontSize = "5vh";
+        document.getElementById("Dice").innerText = ".";
+
+        setTimeout(function() {
+          button.innerText = "..";
+
+          setTimeout(function () {
+            button.innerText = "...";
+
+            setTimeout(function() {
+              var randomNumber = Math.floor(Math.random() * 6) + 1;
+              button.innerText = randomNumber;
+            }, 1000);
+          }, 1000);
+        },1000);
       }
     </script>
 
