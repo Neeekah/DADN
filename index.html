@@ -87,7 +87,8 @@
       function generateRandomNumber() {
         var button = document.getElementById("Dice");
         button.style.fontSize = "5vh";
-        document.getElementById("Dice").innerText = ".";
+        button.disabled = true;
+        button.innerText = ".";
 
         setTimeout(function() {
           button.innerText = "..";
@@ -98,6 +99,7 @@
             setTimeout(function() {
               var randomNumber = Math.floor(Math.random() * 6) + 1;
               button.innerText = randomNumber;
+              button.disabled = false;
             }, 1000);
           }, 1000);
         },1000);
@@ -121,8 +123,8 @@
     align-items: flex-start;
   }
   .container img {
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    height: auto;
   }
   .button {
     margin: 0;
