@@ -11,7 +11,7 @@
     <audio id="Sound2" src=""></audio>
     
       <script>
-        function get UrlParameter(id) {
+        function getUrlParameter(id) {
           var UrlParams = new URLSearchParams(window.location.search);
           return UrlParams.get(id);
         }
@@ -19,31 +19,34 @@
         function setDynamicContent() {
           var id = getUrlParameter('id');
           var Board = document.getElementById('Board');
+          var Sound1 = document.getElementById('Sound1');
+          var Sound1 = document.getElementById('Sound1');
           
           if (id === '1') {
-          Board.src = 'Boards\DADNbl.png'
-          Sound1.src = 'Audios\DrumRoll.mp3'
-          Sound2.src = 'Audios\WompWomp.mp3'
-        } else if (id === '2') {
-          Board.src = 'Boards\DADNgr.png'
-          Sound1.src = 'Audios\CrowdWoo.mp3'
-          Sound2.src = 'Audios\CrowdBoo.mp3'
-        } else if (id === '3') {
-          Board.src = 'Boards\DADNrd.png'
-          Sound1.src = 'Audios\CrowGasp.mp3'
-          Sound2.src = 'Audios\Bonk.mp3'
-        } else if (id === '4') {
-          Board.src = 'Boards\DADNyl.png'
-          Sound1.src = 'Audios\GoofyAhh.mp3'
-          Sound2.src = 'Audios\HmWeisNich.mp3'
-        } else if (id === 'elk') {
-          Board.src = 'Boards\DADNgr.png'
-          Sound1.src = 'Audios\Trumpet.mp3'
-          Sound2.src = 'Audios\Womp2.mp3'
+            Board.src = 'Boards/DADNbl.png';
+            Sound1.src = 'Audios/DrumRoll.mp3';
+            Sound2.src = 'Audios/WompWomp.mp3';
+          } else if (id === '2') {
+            Board.src = 'Boards/DADNgr.png';
+            Sound1.src = 'Audios/CrowdWoo.mp3';
+            Sound2.src = 'Audios/CrowdBoo.mp3';
+          } else if (id === '3') {
+            Board.src = 'Boards/DADNrd.png';
+            Sound1.src = 'Audios/CrowGasp.mp3';
+            Sound2.src = 'Audios/Bonk.mp3';
+          } else if (id === '4') {
+            Board.src = 'Boards/DADNyl.png';
+            Sound1.src = 'Audios/GoofyAhh.mp3';
+            Sound2.src = 'Audios/HmWeisNich.mp3';
+          } else if (id === 'elk') {
+            Board.src = 'Boards/DADNgr.png';
+            Sound1.src = 'Audios/Trumpet.mp3';
+            Sound2.src = 'Audios/Womp2.mp3';
+          }
         }
         
         window.onload = setDynamicContent;
-        
+
         function playSound(audioid) {
             var audio = document.getElementById(audioid);
             audio.play();
