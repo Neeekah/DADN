@@ -3,7 +3,7 @@
 <head>
     <title>Dude ärger dich nicht</title>
 </head>
-<body ondblclick="toggleFullscreen()">
+<body>
 
   <div class="container">
     <img id="Board" src="">
@@ -60,10 +60,21 @@
           audio.play();
       }
 
+      let lastTap = 0;
+      document.body.addEventListener('touchend', function(event) {
+        let currentTime = new Date().getTime();
+        let tapLength = currentTime - lastTap;
+        if (tapLength < 500 && tapLength > 0) {
+          event.preventDefault();
+          toggleFullscreen();
+        }
+        lastTap = currentTime;
+      });
+
       function toggleFullscreen() {
         if (!document.fullscreenElement) {
           document.documentElement.requestFullscreen();
-        } else if (document.exitFullscreen) {
+        } else {
           document.exitFullscreen();
         }
       }
