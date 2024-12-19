@@ -68,16 +68,17 @@
         let tapLength = currentTime - lastTap;
         if (tapLength < 500 && tapLength > 0) {
           event.preventDefault();
-          toggleFullscreen();
+          toggleTouchAction();
         }
         lastTap = currentTime;
       });
 
-      function toggleFullscreen() {
-        if (!document.fullscreenElement) {
-          document.documentElement.requestFullscreen();
+      function toggleTouchAction() {
+        var container = document.getElementById('container');
+        if (container.style.touchAction === 'none') {
+          container.style.touchAction = 'auto';
         } else {
-          document.exitFullscreen();
+          container.style.touchAction = 'none';
         }
       }
       
@@ -118,13 +119,14 @@
   .container {
     margin: 0;
     padding: 0;
-    height: auto;
+    height: 800px;
     width: 400px;
     object-fit: contain;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     position: relative;
+    background-color: blueviolet;
   }
   .container img {
     max-width: 100%;
@@ -145,7 +147,7 @@
     width: 80px;
     border-radius: 50%;
     top: 92%;
-    left: 75%;
+    left: 70%;
   }
   #Soundbutton2 {
     background-color: red;
@@ -153,15 +155,15 @@
     width: 80px;
     border-radius: 50%;
     top: 82%;
-    left: 88%;
+    left: 80%;
   } 
   #Dice {
     background-color: #eceedd;
-    height: 80px;
-    width: 80px;
+    height: 90px;
+    width: 90px;
     border-radius: 20%;
-    top: 89%;
-    left: 18%;
+    top: 88%;
+    left: 22%;
     font-size: 25px;
   }
 </style>
