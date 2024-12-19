@@ -11,8 +11,14 @@
     <audio id="Sound2" src=""></audio>
     
       <script>
+        function get UrlParameter(id) {
+          var UrlParams = new URLSearchParams(window.location.search);
+          return UrlParams.get(id);
+        }
+
         function setDynamicContent() {
           var id = getUrlParameter('id');
+          var Board = document.getElementById('Board');
           
           if (id === '1') {
           Board.src = 'Boards\DADNbl.png'
@@ -35,14 +41,16 @@
           Sound1.src = 'Audios\Trumpet.mp3'
           Sound2.src = 'Audios\Womp2.mp3'
         }
-      }
+        
+        window.onload = setDynamicContent;
+        
         function playSound(audioid) {
             var audio = document.getElementById(audioid);
             audio.play();
         }
       </script>
     
-    <button id="Dice" onclick="generateRandomNumber()">Staaart</button>
+    <button id="Dice" onclick="generateRandomNumber()">Start!</button>
     
       <script>
         function generateRandomNumber() {
